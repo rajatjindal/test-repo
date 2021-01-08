@@ -9,7 +9,7 @@ pipeline {
                 sh "git fetch origin b1"
                 script {
                     def gitDiff = sh(script: "git diff --name-only origin/b1...origin/main", returnStdout: true).trim()
-                    echo ${gitDiff}
+                    echo "${gitDiff}"
                 }
                 echo "hmm"
             }
