@@ -8,7 +8,7 @@ pipeline {
                 sh """
                     UI="ui"
                     files=`git diff b1..master --name-only`
-                    echo $files
+                    echo ${files}
                 """
             }
         }
