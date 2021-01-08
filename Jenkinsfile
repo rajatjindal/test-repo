@@ -5,12 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                sh """
-                    UI="ui"
-                    echo "\${UI}"
-                    FILES=`git diff b1..master --name-only`
-                    echo "\${FILES}"
-                """
+                sh "git fetch --no-tags origin '+refs/heads/b1:refs/remotes/origin/master'"
+                def gitDiff = sh(script: "git diff --name-only origin/b1...origin/master", returnStdout: true).trim()
+                echo "hmm"
+                echo gitDiff
             }
         }
         stage('Test') {
