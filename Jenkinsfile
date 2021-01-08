@@ -7,9 +7,9 @@ pipeline {
                 checkout scm
                 sh """
                     UI="ui"
-                    echo "${UI}"
+                    echo "\${UI}"
                     FILES=`git diff b1..master --name-only`
-                    echo "${FILES}"
+                    echo "\${FILES}"
                 """
             }
         }
