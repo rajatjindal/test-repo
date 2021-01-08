@@ -11,8 +11,8 @@ pipeline {
                 sh "git checkout b1 && git pull --rebase origin b1"
                 
                 script {
-                    def gitDiff = sh(script: "git diff --name-only origin/b1...origin/main", returnStdout: true).trim()
-                    echo "${gitDiff}"
+                    sh("git diff --name-only origin/b1...origin/main > diff.out")
+                    sh("cat diff.out")
                 }
                 echo "hmm"
             }
