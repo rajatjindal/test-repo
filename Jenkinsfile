@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('Build') {
-            checkout scm
             steps {
+                checkout scm
                 echo 'Building..'
             }
         }
