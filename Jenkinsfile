@@ -7,6 +7,7 @@ pipeline {
                 checkout scm
                 sh """
                     UI="ui"
+                    echo ${UI}
                     FILES=`git diff b1..master --name-only`
                     echo ${FILES}
                 """
