@@ -9,9 +9,7 @@ pipeline {
                 sh "git fetch origin b1"
                 script {
                     def gitDiff = sh(script: "git diff --name-only origin/b1...origin/main", returnStdout: true).trim()
-                    for (int i = 0; i < gitDiff.size(); ++i) {
-                        echo "File ${gitDiff[i]} changed"
-                    }
+                    echo ${gitDiff}
                 }
                 echo "hmm"
             }
