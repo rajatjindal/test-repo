@@ -5,8 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                sh "git fetch --no-tags origin main"
-                sh "git fetch --no-tags origin b1"
+                sh "git fetch --all"
                 //def gitDiff = sh(script: "git diff --name-only origin/b1...origin/main", returnStdout: true).trim()
                 echo "hmm"
             }
